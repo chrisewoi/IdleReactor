@@ -81,7 +81,7 @@ TrailRenderer:
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.05
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -282,6 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1479604840754564378}
   - component: {fileID: 6150552427571442319}
+  - component: {fileID: 8161692145645710366}
   m_Layer: 0
   m_Name: Emission
   m_TagString: Untagged
@@ -299,7 +300,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4431935272431414395}
@@ -321,8 +322,36 @@ MonoBehaviour:
   speed: 0
   color: {r: 1, g: 0.7607843, b: 0.9882353, a: 1}
   trail: {fileID: 7833806699404931248}
+  trail2: {fileID: 0}
   spriteRenderer: {fileID: 1912831982440126788}
   direction: {x: 0, y: 0}
-  minSaturation: 194
-  colorSpeed: 0.4
+  minSaturation: 184
+  colorSpeed: 0.5
   cooloff: 5
+--- !u!50 &8161692145645710366
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2804280461182105830}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 0.0019634955
+  m_LinearDamping: 0
+  m_AngularDamping: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 86c81322e5f375f4787687df512e59ed, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

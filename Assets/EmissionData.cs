@@ -27,7 +27,7 @@ public class EmissionData : MonoBehaviour
         SetRGB();
         valueMod = 1;
         valueAsFloat = 1f;
-        cooloffCurrent = cooloff;
+        cooloffCurrent = cooloff + Random.Range(-cooloff, cooloff)/10f;
     }
 
     private void OnEnable()
@@ -37,21 +37,28 @@ public class EmissionData : MonoBehaviour
         SetRGB();
         valueMod = 1;
         valueAsFloat = 1f;
-        cooloffCurrent = cooloff;
+        cooloffCurrent = cooloff + Random.Range(-cooloff, cooloff)/10f;
+
+        trail.startColor = new Color(trail.startColor.r, trail.startColor.g, trail.startColor.b, 1f);
     }
 
     void Update()
     {
         cooloffCurrent -= Time.deltaTime;
+        
+        trail.time = cooloffCurrent + cooloff/3f;
+            
         if (cooloffCurrent < 0f)
         {
-            Color trailColor = trail.startColor;
-            trailColor.a = 0f;
-            trail.startColor = trailColor;
-            Destroy(trail.gameObject, cooloff);
             GameObject newTrail = Instantiate(trail.gameObject, gameObject.transform);
+            newTrail.name = "Trail";
+            Color trailColor = trail.startColor;
+            trailColor.a = 0.1f;
+            trail.startColor = trailColor;
             
             trail.transform.SetParent(null);
+            Destroy(trail.gameObject, cooloff);
+            
             trail = newTrail.GetComponent<TrailRenderer>();
             gameObject.SetActive(false);
             return;
@@ -148,5 +155,13 @@ public class EmissionData : MonoBehaviour
     float ColorX(int colorValue)
     {
         return colorValue / 255f;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Bounds"))
+        {
+            direction = Vector2.Reflect(direction, other.contacts[0].normal);
+        }
     }
 }

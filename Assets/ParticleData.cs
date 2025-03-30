@@ -43,7 +43,7 @@ public class ParticleData : MonoBehaviour
     {
         emissionTime += Time.deltaTime;
 
-        if (heatUncapped == 0) heatUncapped = 0.01f;
+        if (heatUncapped <= 0.01f) heatUncapped = 0.01f;
         if (emissionTime >= 1/emissionMult * 1/heatUncapped)
         {
             emissionTime = 0f;
