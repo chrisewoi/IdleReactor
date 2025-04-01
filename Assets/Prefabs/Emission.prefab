@@ -158,7 +158,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4431935272431414395}
   - component: {fileID: 1912831982440126788}
-  - component: {fileID: 520725190750005441}
   m_Layer: 0
   m_Name: EmissionSprite
   m_TagString: Untagged
@@ -236,42 +235,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &520725190750005441
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261826477815926856}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
 --- !u!1 &2804280461182105830
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,10 +245,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1479604840754564378}
   - component: {fileID: 6150552427571442319}
-  - component: {fileID: 8161692145645710366}
+  - component: {fileID: 2213520509569870154}
   m_Layer: 0
   m_Name: Emission
-  m_TagString: Untagged
+  m_TagString: Emission
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,25 +288,21 @@ MonoBehaviour:
   trail2: {fileID: 0}
   spriteRenderer: {fileID: 1912831982440126788}
   direction: {x: 0, y: 0}
+  timeEnabled: 0
   minSaturation: 184
   colorSpeed: 0.5
   cooloff: 5
---- !u!50 &8161692145645710366
-Rigidbody2D:
-  serializedVersion: 5
+  emissionSize: 0
+--- !u!58 &2213520509569870154
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2804280461182105830}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 0.0019634955
-  m_LinearDamping: 0
-  m_AngularDamping: 0
-  m_GravityScale: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 6200000, guid: 86c81322e5f375f4787687df512e59ed, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -351,7 +310,22 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5

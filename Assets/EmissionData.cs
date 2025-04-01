@@ -11,6 +11,8 @@ public class EmissionData : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     public Vector2 direction;
+    public Vector2 position => transform.position;
+    public float timeEnabled;
 
     private int r, g, b, target, value, valueMod;
     private float valueAsFloat;
@@ -20,6 +22,12 @@ public class EmissionData : MonoBehaviour
     public float cooloff;
     private float cooloffCurrent;
 
+    public float emissionSize;
+
+    private void Awake()
+    {
+        emissionSize = transform.localScale.x;
+    }
     void Start()
     {
         r = minSaturation; g = minSaturation; b = minSaturation;
@@ -40,6 +48,7 @@ public class EmissionData : MonoBehaviour
         cooloffCurrent = cooloff + Random.Range(-cooloff, cooloff)/10f;
 
         trail.startColor = new Color(trail.startColor.r, trail.startColor.g, trail.startColor.b, 1f);
+        timeEnabled = Time.time;
     }
 
     void Update()
