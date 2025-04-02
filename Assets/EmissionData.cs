@@ -76,11 +76,36 @@ public class EmissionData : MonoBehaviour
         valueAsFloat += colorSpeed * valueMod * Time.deltaTime;
         value = (int)(valueAsFloat * 255f); //value = Mathf.RoundToInt(valueAsFloat * 255f);
         transform.position += (Vector3)direction * (speed * Time.deltaTime);
+        
+        WallCheck();
+        
         ColorUpdater();
         spriteRenderer.color = color;
         Color tmp = color;
         tmp = new Color(ColorX(r), ColorX(g), ColorX(b), 100f / 255f);
         trail.startColor = tmp;
+    }
+
+    public void WallCheck()
+    {
+        if (position.x < ScreenBounds.left && direction.x <= 0f)
+        {
+            direction = Vector2.Reflect(direction, Vector2.right);
+        } 
+        else if (position.x > ScreenBounds.right && direction.x >= 0f)
+        {
+            direction = Vector2.Reflect(direction, Vector2.left);
+        }
+
+        if (position.y > ScreenBounds.top && direction.y >= 0f)
+        {
+            direction = Vector2.Reflect(direction, Vector2.down);
+        } 
+        else if (position.y < ScreenBounds.bottom && direction.y <= 0f)
+        {
+            direction = Vector2.Reflect(direction, Vector2.up);
+        }
+        
     }
 
     public void ColorUpdater()
@@ -166,11 +191,11 @@ public class EmissionData : MonoBehaviour
         return colorValue / 255f;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    /*private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Bounds"))
         {
             direction = Vector2.Reflect(direction, other.contacts[0].normal);
         }
-    }
+    }*/
 }
