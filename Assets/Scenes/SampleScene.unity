@@ -1178,10 +1178,10 @@ MonoBehaviour:
   shakeHeatTarget: 0.559
   shakeChangeSpeed: 2
   shakeTime: 0
-  particleMax: 300
+  particleMax: 500
   v: 0
   sceneLight: {fileID: 619394801}
-  lightIntensityMax: 30
+  lightIntensityMax: 25
   curve:
     serializedVersion: 2
     m_Curve:
